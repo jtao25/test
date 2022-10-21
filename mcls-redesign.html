@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Redesign</title>
+    <link rel="stylesheet" href="responsive-redesign.css">
+    <meta name="description" content="responsive redesign writeup">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM Sans:400,500,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space Mono:400,700">
+</head>
+
+    <body>
+        
+        <!-- <header style="padding:30px" id="header">
+            <h1>Responsive Redesign</h1>
+            <p>Redesigning the Mercer County Library System's Home Page</p>
+        </header> -->
+        
+        <img class="full-width" src="file:///Users/jeffreytao/Desktop/cs1300/responsive-redesign/Hero.png" alt="responsive-redesign-hero">  
+        
+        <!-- Overview -->
+        <div class="content" id="overview">
+            <h2>Overview</h2>
+                <p>The goal of this project was to practice the workflow of redesigning a simple website. 
+                    It involved analyzing and identifying flaws in an existing interface, creating low-fidelity 
+                    and high-fidelity prototypes for various screen sizes, and building a responsive website based 
+                    on those prototypes.
+                </p>
+                <p>For this project, I decided to redesign the home page for  <a href="https://mcl.org/" style="color: #3DAF96;">Mercer County Library System</a>, 
+                    the local library I grew up with. Looking back on my childhood, my local library played an 
+                    integral role in my early education. I thought their website would be good to redesign because 
+                    a better interface could increase community engagement with the library, and I thought this 
+                    would be a good opportunity to give back to a place that shaped my formative years.
+                </p>
+        </div>
+
+        <!-- Identifying Usability Problems -->
+        <div class="content" id="part1">
+            <h2>Identifying Usability Problems</h2>
+                <p>Usability is a measure of how well a user can use a product or interface to accomplish a task 
+                    effectively, efficiently and satisfactorily. This can be broken down into three dimensions:
+                </p>
+                <ul class="list">
+                    <li><b>Learnability</b> - Is it easy for new users to learn?</li>
+                    <li><b>Memorability</b> - Is it easy for casual users to recall what to do?</li>
+                    <li><b>Efficiency</b> - Can frequent users accomplish typical tasks quickly?</li>
+                </ul>
+                <p>The most usable interfaces answer yes to these questions. I began this process by performing a
+                    quick walkthrough of the existing web page, jotting down any thoughts, concerns, or questions I
+                    had as they arose.
+                </p>
+                <br>
+                   <img class="full-width" src="file:///Users/jeffreytao/Desktop/cs1300/responsive-redesign/cognitive-walkthru.png" alt="cognitive-walkthrough-of-old-site">  
+                <p>At a glance, the webpage was cluttered and unpolished, and I found it 
+                    difficult to find and perform specific actions on the page. I then dove into a detailed analysis of 
+                    the website’s usability, keeping in mind the three dimensions as well as the conceptual models 
+                    that the interface uses and how they compare to the typical user’s mental models. I synthesized 
+                    my findings into a few key problems:
+                </p>
+                   <div class="container" style="display: flex;">
+                    <div style="width: 50%; padding: 0px 20px 0px 20px;">
+                        <p><b>Visual clutter and information overload</b></p>
+                        <ul>
+                            <li>Users may be overwhelmed by the large amount of information on the page, 
+                                particularly the Resources and Services sections which have many categories
+                            </li>
+                            <li>This can lead to decision paralysis and make it easier to get lost
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="width: 50%; padding: 0px 20px 0px 20px;">
+                        <p><b>Lack of contextual information</b></p>
+                        <ul>
+                            <li>The Resources, Services, and Catalog sections lay out all of the options available to 
+                                the user without providing any context as to what they are about or how to start using them
+                            </li>
+                            <li>This can be unwelcoming to new users and makes it harder to recall how to do a task
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container" style="display: flex;">
+                    <div style="width: 50%; padding: 0px 20px 30px 20px;">
+                        <p><b>Unorganized information architecture/content strategy</b></p>
+                        <ul>
+                            <li>The Resources, Services, and Catalog sections lay out all of the options available to 
+                                the user without providing any context as to what they are about or how to start using them
+                            </li>
+                            <li>This can be unwelcoming to new users and makes it harder to recall how to do a task
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="width: 50%; padding: 0px 20px 30px 20px;">
+                        <p><b>Navigational inefficiency</b></p>
+                        <ul>
+                            <li>Many of the typical tasks one would perform, such as searching the library catalog, 
+                                registering and looking for information about events, reserving and renewing books, and 
+                                applying for a library card are hard to find or complete quickly
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Accessibility -->
+                <div>
+                    <h3>ACCESSIBILITY</h3>
+                    <p>After identifying usability problems, I also used WebAIM WAVE to detect issues 
+                        with accessibility. These were the most significant issues it found:</p>
+                        <ul>
+                            <li> 
+                                <b>Many images have null or empty alternative text.</b> 
+                                I agree that this could be an issue, as alt text makes 
+                                it easier for those using a screen reader to navigate the site.
+                            </li>
+                            <br>
+                            <li> 
+                                <b>Many very low contrast errors.</b> 
+                                I would disagree here. From my own observations, I didn’t notice too many 
+                                apparent contrast errors, except for the hover states of the digital collection 
+                                titles in the catalog section. Also, it seems like the contrast errors they found 
+                                did not compare the correct foreground and background colors, creating errors that 
+                                didn’t exist.
+                            </li>
+                            <br>
+                            <li> 
+                                <b>ARIA Hidden tags.</b> 
+                                Content with these tags were hidden with ARIA and not presented to screen reader users. 
+                                I noticed that these tags generally only applied to the social media buttons, so users 
+                                with screen readers might not be able to interact with or navigate to the library’s 
+                                social media channels. However, I don’t think this is a huge area of concern.
+                            </li>
+                            <br>
+                            <li> 
+                                <b>Redundant text titles and noscript elements.</b> 
+                                WAVE recommended either removing or modifying the title attribute to provide advisory, 
+                                not redundant information. This doesn’t seem too concerning in terms of accessibility. 
+                                The noscript elements might not be accessible to users that have disabled scripts, but 
+                                since most people do have them enabled, I don’t think this presents a huge accessibility 
+                                issue either.
+                            </li>
+                        </ul>
+                </div>
+                
+        </div>
+
+        <!-- Visual Redesign -->
+        <div class="content" id="part2">
+            <h2>Visual Redesign</h2>
+            <br>
+                <h3>LOW-FIDELITY WIREFRAMES</h3>
+                    <p>To address these issues, I started by brainstorming solutions and sketching out low-fidelity
+                        wireframes to let me ideate quickly and freely. 
+                    </p>
+                    <p><b>Highlights of my Redesign</b></p>
+                    <ul class="list">
+                        <li>Reduced redundancies and clutter</li>
+                        <li>Improved content strategy by putting most relevant and desired information at the top</li>
+                        <li>Made typical tasks and other actions easier to locate and accomplish</li>
+                        <li>Updated visual identity to be more modern and attractive</li>
+                    </ul>
+                    <img src="file:///Users/jeffreytao/Desktop/cs1300/responsive-redesign/Desktop%20Lo-fi.png" alt="desktop-lofi-wireframes-markup">
+                    <img src="file:///Users/jeffreytao/Desktop/cs1300/responsive-redesign/Tablet%20+%20Mobile%20Lo-fi.png" alt="desktop-lofi-wireframes-markup">
+
+                <h3>VISUAL DESIGN STYLE GUIDE</h3>
+                    <p>I then created a visual design style guide that documents the main colors, typography, and reusable 
+                        components’ different states in order to establish a consistent visual identity and facilitate 
+                        dev handoff.
+                    </p>
+                    <img src="file:///Users/jeffreytao/Desktop/cs1300/responsive-redesign/Visual%20Design%20Style%20Guide.png" alt="visual-design-style-guide">
+
+                <h3>HIGH-FIDELITY PROTOTYPES</h3>
+                <p>Next, I translated my low-fidelity wireframes into high-fidelity prototypes in Figma using the colors, 
+                    typography, and components from my visual design style guide.
+                </p>
+
+                <h3>RESPONSIVE REDESIGN</h3>
+                <p>Finally, I recreated my high-fidelity prototypes using HTML and CSS to build Mercer County Library’s 
+                    redesigned and responsive home page. Note that I used dummy elements for certain navigational elements 
+                    and buttons.
+                </p>
+        </div>
+    </body>
+   
+
+
+
+
+</html>
